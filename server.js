@@ -21,8 +21,8 @@ const firebaseConfig = {
     messagingSenderId: "513838819682",
     appId: "1:513838819682:web:6a026d1fa86ab673b8a43b"
   };
-  const application = initializeApp(firebaseConfig);
-  const fireStore = getFirestore(application)
+const application = initializeApp(firebaseConfig);
+const fireStore = getFirestore(application)
 
 
 // Adds a new tree in the realtime database inside 'users'

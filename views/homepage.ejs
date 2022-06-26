@@ -1,14 +1,131 @@
+<link href="/css/style.css" rel="stylesheet" type="text/css">
+<head>
+    <title>Paul's Store</title>
+</head>
 
 <div>
-    Welcome to the website!
-</div>
-<div id="signout">
-    <form action="/signout" method="POST">
-        <button>Signout</button>
-    </form>
+    <nav>
+        <ul>
+            <li><a>Home</a></li>
+            <li><a>Clothing</a></li>
+            <li><a>Shoes</a></li>
+            <li><a>Accessories</a></li>
+            <li class="right" id="cart"><a>Cart</a></li>
+
+            <li id="signoutButton">
+                <div id="signout">
+                    <form action="/signout" method="POST">
+                        <button>Signout</button>
+                    </form>
+                </div>
+            </li>
+        </ul>
+    </nav>
 </div>
 
-<div id="identity">
-    <h3 id="userName"></h3>
-    <h3 id="userEmail"></h3>
+<div id="block1">
+    <div id="newCollection">
+        New collection
+    </div>
+
+    <div id="summerCollection">
+        Summer 2022 Collection
+    </div>
+
+    <div id="shopNow">
+        <a href="#">
+            Shop Now
+        </a>
+    </div>
+
+    <div id="block1Image">
+        {Insert image}
+    </div>
 </div>
+
+
+
+<style>
+
+    li {
+        display: inline-block;
+        width: 80px;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    #signoutButton {
+        border: none;
+        float: right;
+        margin: 0;
+        margin-top: 10px;
+        padding: 0;
+        position: relative;
+        left: 50px;
+    }
+
+    #block1 {
+        margin: 0;
+        margin-top: 10px;
+        padding: 0;
+        background-color: rgb(249, 244, 238);
+        width: 100%;
+        height: 500px;
+        font-family:'Courier New', Courier, monospace;
+
+    }
+
+    #newCollection {
+        color: rgb(247, 58, 1);
+        position: relative;
+        left: 50px;
+        top: 150px;
+        font-size: 15px;
+    }
+
+    #summerCollection {
+        font-size:25px;
+        position: relative;
+        left: 50px;
+        top: 165px;
+    }
+
+    #shopNow {
+        font-size: 30px;
+        position: relative;
+        left: 50px;
+        top: 190px;
+        border: 1px solid black;
+        background-color: black;
+        color: white;
+        width: 150px;
+        padding: 5px;
+    }
+
+    #block1Image {
+        position: relative;
+        left: 50%;
+        top: 150px;
+    }
+
+    #block1 a{
+        text-decoration: none;
+        color: white;
+    }
+
+    .right {
+        float: right;
+    }
+
+    #cart {
+        position: relative;
+        right: 100px;
+    }
+
+</style>
