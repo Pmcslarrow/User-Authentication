@@ -28,6 +28,13 @@
     </div>
 </div>
 
+<!-- Shopping Cart -->
+<div id="cartContent" data="off">
+    <a id="cart" onclick="cartAction()" href="#">
+        <img src="http://localhost:3000/public/images/cart.png">
+    </a>
+</div>
+
 <!-- Collection block -->
 <div id="block1">
     <div id="newCollection">
@@ -78,29 +85,44 @@
     </div>
 
     <div id="scroll3" class="scrollItem">
-        scroll3
-        <img src="http://localhost:3000/public/images/k780.png">
+        Corsair K70
+        <img src="http://localhost:3000/public/images/corsair.jpg">
     </div>
 
     <div id="scroll4" class="scrollItem">
-        scroll4
-        <img src="http://localhost:3000/public/images/k780.png">
+        Logitech G915
+        <img src="http://localhost:3000/public/images/lightspeed.png">
     </div>
 
     <div id="scroll5" class="scrollItem">
-        scroll5
-        <img src="http://localhost:3000/public/images/k780.png">
-    </div>
-
-    <div id="scroll6" class="scrollItem">
-        scroll6
-        <img src="http://localhost:3000/public/images/k780.png">
+        Keychron K3 V2
+        <img src="http://localhost:3000/public/images/keychron.jpg">
     </div>
 
 </div>
 
 
 <style>
+
+    body {
+        width: 99%;
+    }
+
+
+    #cartContent {
+        width: 100px;
+        height: 50px;
+        transition: height 1s ease-in-out;
+    }
+
+    #cart {
+        position: absolute;
+        left: 95%;
+        top: -55px;
+        width: 0px;
+        height: 25px;
+    }
+    
 
     li {
         display: inline-block;
@@ -148,7 +170,6 @@
 
     #block1 {
         margin: 0;
-        margin-top: 10px;
         padding: 0;
         background-color: rgb(253, 237, 218);
         width: 100%;
@@ -219,22 +240,22 @@
     #block2 {
         position:absolute;
         left: 10px;
-        top: 600px;
+        top: 700px;
     }
     #block3 {
         position:absolute;
         left: 34%;
-        top: 600px;
+        top: 700px;
     }
     #block4 {
         position:absolute;
         left: 67.5%;
-        top: 600px;
+        top: 700px;
     }
 
     #newCollectionImage {
         position: relative;
-        left: 700px;
+        left: calc(50% - 300px);
     }
 
     @media screen and (max-width: 1000px) {
@@ -253,7 +274,7 @@
         width: 99%;
         height: 200px;
         left: 10px;
-        top: 950px;
+        top: 1000;
         transition: 100% 5s;
     }
 
@@ -262,12 +283,12 @@
         font-size: 20px;
         text-align: center;
         top: 12.5%;
-        width: 150px;
+        width: 200px;
         height: 150px;
         margin-left: 150px;
         border: 1px solid black;
         display: inline-block;
-        animation: left-to-right 10s linear forwards infinite;
+        animation: left-to-right 20s linear forwards infinite;
     }
 
     .scrollItem:hover { animation-play-state: paused;}
@@ -332,10 +353,15 @@
         width: 100%;
     }
 
+    #cartMenu {
+        position: absolute;
+        left: 100%;
+    }
 
 </style>
 
 <script>
+
     function openSlideMenu(){
         document.getElementById('menu').style.width = '400px';
         document.getElementById('content').style.marginLeft = '400px';
@@ -345,4 +371,34 @@
         document.getElementById('menu').style.width = '0';
         document.getElementById('content').style.marginLeft = '0';
     }
+
+    function hide() {
+        let block1 = document.getElementById("block1");
+        block1.style.visibility = "hidden";
+
+    }
+
+    function cartAction() {
+        let cart = document.getElementById('cartContent');
+        let img = document.getElementById("cart");
+        let state = cart.getAttribute("data");
+        if (state === "off")
+        {
+            cart.setAttribute("data", "on");
+            img.style.left = "100px";
+            cart.style.height = "400px";
+            cart.style.width = "100%";
+            cart.style.border = "1px solid black";
+            setTimeout(hide, 1000);
+    
+        } else {
+            cart.setAttribute("data", "off");
+            cart.style.height = "0";
+            cart.style.width = "0";
+            cart.style.border = "0";
+            block1.style.visibility = "visible";
+        }
+    }
+
+
 </script>
