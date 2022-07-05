@@ -43,6 +43,22 @@ function parseEmail( email ) {
     return userId
 }
 
+function specialCharacter(password)
+{
+    let special = ['!', '$', '_', '-']
+    for (let i = 0; i < password.length; i++)
+    {
+        for (let val of special)
+        {
+            if (password.includes(val)) {
+                return true
+            }
+        }
+    }
+    return false
+}
+
+
 
 /* When you try to access the homepage it checks if you are signed in first to allow access */
 app.get('/homepage', (req, res) => {
@@ -52,6 +68,10 @@ app.get('/homepage', (req, res) => {
     } else {
         res.render('login.ejs')
     }
+})
+
+app.get('/homepageFORCE', (req, res) => {
+        res.render('homepage.ejs')
 })
 
 app.post('/signout', (req, res) => {
@@ -99,15 +119,26 @@ app.get('/register', (req, res) => {
 /* When you press the register button */
 app.post('/register', async (req, res) => {
 
-    try {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10)
-        let user = req.body.email
-        let userId = parseEmail(user)
-        writeUserData(userId, req.body.name, req.body.email, hashedPassword)
-        res.redirect('/login')
-    } catch {
+    let pass = req.body.password;
+    if (pass.length < 8 || !specialCharacter(req.body.password))
+    {
+        console.log("Password must be greater than 9 characters long with atleast one special character.")
         res.redirect('/register')
+    } else {
+        try {
+            const hashedPassword = await bcrypt.hash(req.body.password, 10)
+            let user = req.body.email
+            let userId = parseEmail(user)
+            writeUserData(userId, req.body.name, req.body.email, hashedPassword)
+            res.redirect('/login')
+        } catch {
+            res.redirect('/register')
+        }
     }
+})
+
+app.get('/newCollection', async (req, res) => {
+    res.render("newCollection.ejs")
 })
 
 app.listen(3000)
