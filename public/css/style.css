@@ -170,7 +170,7 @@
         width: 99%;
         height: 200px;
         left: 10px;
-        top: 1000;
+        top: 1100px;
         transition: 100% 5s;
     }
 
@@ -179,20 +179,18 @@
         font-size: 20px;
         text-align: center;
         top: 12.5%;
-        width: 200px;
-        height: 150px;
+        width: 400px;
+        height: 200px;
         margin-left: 150px;
         border: 1px solid black;
         display: inline-block;
         animation: left-to-right 20s linear forwards infinite;
+        background-color: rgb(240, 236, 231);
     }
 
     .scrollItem:hover { animation-play-state: paused;}
 
-    #scrollContent img {
-        width: 100px;
-        height: 100px;
-    }
+
 
     @keyframes left-to-right {
         0% {
@@ -261,7 +259,8 @@
     background-color: transparent;
     width: 300px;
     height: 200px;
-    border: 1px solid rgba(255, 57, 57, 0.767);
+    border: 2px solid black;
+    border-radius: 5px;
     display: inline-block;
     margin-left: 30px;
     margin-right: 30px;
@@ -302,13 +301,20 @@
   
   /* Style the back side */
   .flip-card-back {
-    background-color: rgb(240, 236, 231);
-    color: black;
+    background-color: black;
+    color: white;
     font-size: 30px;
     transform: rotateY(180deg);
   }
 
   .flip-card-front img {
     width: 300px;
-    height: 200px;
+    height: 113px;
   }
+
+
+.blackBar {
+    border: 5px solid black;
+    border-radius: 2.5px;
+    width: 100%;
+}

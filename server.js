@@ -27,6 +27,7 @@ const application = initializeApp(firebaseConfig);
 const fireStore = getFirestore(application)
 
 
+
 // Adds a new tree in the realtime database inside 'users'
 function writeUserData(userId, name, email, password) {
     const db = getDatabase();
@@ -139,6 +140,18 @@ app.post('/register', async (req, res) => {
 
 app.get('/newCollection', async (req, res) => {
     res.render("newCollection.ejs")
+})
+
+app.get('/keyboards', async(req, res) => {
+    res.render("keyboards.ejs")
+})
+
+app.get('/mice', async(req, res) => {
+    res.render("mice.ejs")
+})
+
+app.get('/accessories', async(req, res) => {
+    res.render("accessories.ejs")
 })
 
 app.listen(3000)
