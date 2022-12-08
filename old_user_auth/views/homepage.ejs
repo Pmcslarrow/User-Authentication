@@ -1,0 +1,104 @@
+<head>
+    <title>Paul's Store</title>
+    <link rel="stylesheet" href="../public/css/style.css">
+</head>
+
+<div id="content">
+    <span class="slide">
+        <a href="#" onclick="openSlideMenu()">
+           <i>+</i>
+        </a>
+    </span>
+
+    <div id="menu" class="nav" style="width: 0px;">
+        <a href="#" class="close" onclick="closeSlideMenu()">X</a>
+        <a href="#">Home</a>
+        <a href="/keyboards">Keyboards</a>
+        <a href="/mice">Mice</a>
+        <a href="#">Monitors</a>
+        <a href="#">Laptops</a>
+        <a href="#">Desktops</a>
+
+        <li id="signoutButton">
+            <div id="signout">
+                <form action="/signout" method="POST">
+                    <button class="button">Signout</button>
+                </form>
+            </div>
+        </li>
+    </div>
+</div>
+
+<!-- Shopping Cart -->
+<div id="cartContent" data="off">
+    <a id="cart" onclick="cartAction()" href="#">
+        <img src="http://localhost:3000/public/images/cart.png">
+    </a>
+</div>
+<div class="blackBar"></div>
+
+
+<!-- Collection block -->
+<div id="block1">
+    <div id="newCollection">
+        New Collection
+    </div>
+
+    <div id="summerCollection">
+        Limited Chinese Zodiac Edition
+    </div>
+
+    <div id="shopNow">
+        <a href='/newCollection'>Shop Now</a>
+    </div>
+
+    <img id="newCollectionImage" alt="The year of the Rat" src="http://localhost:3000/public/images/YofRat.png" width="600" height="400">
+
+</div>
+
+
+<!-- Three blocks -->
+<a href="/keyboards">
+    <div id="block2">
+        <img src="http://localhost:3000/public/images/keyboard_page.webp" width="500" height="250" style="position: relative; top: 60px;">
+        Keyboards
+    </div>
+</a>
+<a href="/mice">
+    <div id="block3">
+        <img src="http://localhost:3000/public/images/mouse_page.png" width="343" height="280" >
+        Mice
+    </div>
+</a>
+<a href="/accessories">
+    <div id="block4">
+        Parts & Accessories
+    </div>
+</a>
+<div class="blackBar"></div>
+<div class="blackBar" style="position: relative; top: 400px;"></div>
+
+
+
+<!-- Scrolling animation with keyboards and mice -->
+<div id="scrollContent" >
+
+
+    <div id="scroll2" class="scrollItem">
+        Huntsman Mini
+        <img src="http://localhost:3000/public/images/huntsman.png" width="360" height="175">
+    </div>
+
+    <div id="scroll3" class="scrollItem">
+        Corsair K70
+        <img src="http://localhost:3000/public/images/corsair.jpg" width="360" height="175">
+    </div>
+
+    <div id="scroll4" class="scrollItem">
+        Logitech G915
+        <img src="http://localhost:3000/public/images/lightspeed.png" width="360" height="175">
+    </div>
+
+
+</div>
+<script src="../public/script/script.js"></script>

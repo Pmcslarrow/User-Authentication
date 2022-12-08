@@ -1,0 +1,60 @@
+body {
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* Popup Styling */
+.popWrapper {
+  border:1px solid black;
+  width:500px;
+  height:400px;
+  position: relative;
+  left:50%;
+  top: -65px;
+  transform:translate(-50%);
+  background-color: #ff8164;
+}
+
+#formSubmitButton {
+  font-size: larger;
+  position: relative;
+  left: 350px;
+  top: -20px;
+}
+
+/* New User Button */
+#newUserButton {
+  position: relative;
+  left: 190px;
+  top: 50px;
+  font-size: large;
+}
+
+/* Table Styling */
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+table {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  border: 2px solid black;
+  overflow-y: scroll;
+}
+
+
+
+/* Form Styling */
+.nameClass, .ageClass, .emailClass, .jobClass {
+  border: 1px solid black;
+  display: block;
+  margin: 15px;
+  padding: 15px;
+  border-radius: 7.5px;
+}
