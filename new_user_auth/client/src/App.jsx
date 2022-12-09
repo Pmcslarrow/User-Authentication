@@ -2,6 +2,7 @@ import './App.css';
 import {useState, useEffect} from 'react';
 import React from 'react';
 import Popup from "./Popup"
+import axios from 'axios';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
     }
   }, [newUserButtonIsClicked])
 
+
   const listItems = userList.map((user, i) =>
     <tr key={i}>
       <td>{user.user_id}</td>
@@ -41,7 +43,17 @@ function App() {
       <td>{user.age}</td>
       <td>{user.email}</td> 
       <td>{user.job}</td>
-      <td>DELETE BUTTON</td>
+      <td><input id={user.user_id} type="submit" value="X" onClick={(event) => {
+        let value = event.target.id;
+        console.log(value)
+        
+        axios.delete("http://localhost:5000/users", { data : { userData: value}})
+            .then((resp) => {console.log("User has been deleted [+]")})
+            .catch((err) => {console.log("Failed to delete user [-]")})
+        
+        window.location.reload(false);
+        
+      }}/></td>
     </tr>
   );
   

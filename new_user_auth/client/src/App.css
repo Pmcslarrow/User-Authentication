@@ -23,8 +23,8 @@ body {
 
 /* New User Button */
 #newUserButton {
-  position: relative;
-  left: 190px;
+  position: absolute;
+  left: 25px;
   top: 50px;
   font-size: large;
 }
@@ -46,6 +46,10 @@ table {
   transform: translate(-50%, 50%);
   border: 2px solid black;
   overflow-y: scroll;
+}
+
+.deleteButton {
+  background-color: rgba(255, 74, 74, 0.728);
 }
 
 

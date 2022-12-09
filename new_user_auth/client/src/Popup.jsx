@@ -1,4 +1,5 @@
 import {React, useState} from 'react'
+import axios from 'axios'
 import "./App.css"
 
 function FormInput() {
@@ -6,10 +7,25 @@ function FormInput() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [job, setJob] = useState("");
+    const validEmail = new RegExp(
+        '^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$'
+    );
 
+    // Posting new user data to database
     function handleSubmit(event) {
-        event.preventDefault()
-        console.log(age, name, email, job)
+        let data = {
+            age,
+            name,
+            email,
+            job
+        }
+        //Uses regex to validate email
+        if (validEmail.test(email))
+        {
+            axios.post("http://localhost:5000/users", data)
+                .then((resp) => {console.log("User being added [+]")})
+                .catch((err) => {console.log("User failed to add [-]")})
+        }
       }
     
     return (
