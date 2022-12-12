@@ -1,3 +1,5 @@
+// App.jsx
+
 import './App.css';
 import {useState, useEffect} from 'react';
 import React from 'react';
@@ -9,11 +11,21 @@ function App() {
   const [userList, setUsers] = useState([])
   const [newUserButtonIsClicked, setButtonState] = useState(false)
 
+  // Gets the users from the API and then sets the state in userList
   function getUsers()
   {
     fetch("http://localhost:5000/users")
-    .then((res) => res.json())
-    .then((data) => setUsers(data))
+      .then((res) => res.json())
+      .then((data) => setUsers(data))
+  }
+
+  // Deletes the user from the database
+  function deleteUser(value)
+  {
+    axios.delete("http://localhost:5000/users", { data : { userData: value}})
+        .then((resp) => {console.log("User has been deleted [+]")})
+        .catch((err) => {console.log("Failed to delete user [-]")})
+    window.location.reload(false);
   }
 
   useEffect(() => {
@@ -24,6 +36,7 @@ function App() {
     }
   }, [])
 
+  // Toggle for "New User" Button
   useEffect(() => {
     let button = document.getElementById("newUserButton");
     if (newUserButtonIsClicked) {
@@ -36,6 +49,7 @@ function App() {
   }, [newUserButtonIsClicked])
 
 
+  // Creates DOM objects for users from database
   const listItems = userList.map((user, i) =>
     <tr key={i}>
       <td>{user.user_id}</td>
@@ -43,20 +57,10 @@ function App() {
       <td>{user.age}</td>
       <td>{user.email}</td> 
       <td>{user.job}</td>
-      <td><input id={user.user_id} type="submit" value="X" onClick={(event) => {
-        let value = event.target.id;
-        console.log(value)
-        
-        axios.delete("http://localhost:5000/users", { data : { userData: value}})
-            .then((resp) => {console.log("User has been deleted [+]")})
-            .catch((err) => {console.log("Failed to delete user [-]")})
-        
-        window.location.reload(false);
-        
-      }}/></td>
+      <td><input id={user.user_id} type="submit" value="X" onClick={(event) => { deleteUser(event.target.id)}}/></td>
     </tr>
   );
-  
+
   return (
     <>
       <div>User Management Page</div>
